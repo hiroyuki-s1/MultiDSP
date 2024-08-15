@@ -21,7 +21,6 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include <JuceHeader.h>
-
 #include <juce_audio_processors/juce_audio_processors.h>
 //[/Headers]
 
@@ -35,23 +34,17 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class delay_ui  : public juce::Component,
-                  public juce::Slider::Listener,
-                  public juce::Button::Listener
+class DualDelayVerbUI  : public juce::Component,
+                         public juce::Slider::Listener,
+                         public juce::Button::Listener
 {
 public:
     //==============================================================================
-    delay_ui ();
-    ~delay_ui() override;
+    DualDelayVerbUI ();
+    ~DualDelayVerbUI() override;
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    void setLabelText(const juce::String& newText);
-    float repeat;
-    float mix;
-    float tone;
-    float delay_time;
-
     //[/UserMethods]
 
     void paint (juce::Graphics& g) override;
@@ -60,8 +53,8 @@ public:
     void buttonClicked (juce::Button* buttonThatWasClicked) override;
 
     // Binary resources:
-    static const char* background_png;
-    static const int background_pngSize;
+    static const char* background2_png;
+    static const int background2_pngSize;
 
 
 private:
@@ -69,18 +62,20 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    std::unique_ptr<juce::Slider> juce__slider_time;
-    std::unique_ptr<juce::Slider> juce__slider_mix;
-    std::unique_ptr<juce::Slider> juce__slider_repeat;
-    std::unique_ptr<juce::Slider> juce__slider_tone;
-    std::unique_ptr<juce::TextButton> juce__textButton_ONOFF;
-    std::unique_ptr<juce::Label> juce__label;
-    std::unique_ptr<juce::Label> juce__label_message;
-    juce::Image cachedImage_background_png_1;
+    std::unique_ptr<juce::Slider> juce__slider2;
+    std::unique_ptr<juce::Slider> juce__slider_top1;
+    std::unique_ptr<juce::Slider> juce__slider_top2;
+    std::unique_ptr<juce::Slider> juce__slider_top3;
+    std::unique_ptr<juce::Slider> juce__slider_bottom1;
+    std::unique_ptr<juce::Slider> juce__slider_bottom2;
+    std::unique_ptr<juce::Slider> juce__slider_bottom3;
+    std::unique_ptr<juce::TextButton> juce__textButton_ab;
+    std::unique_ptr<juce::TextButton> juce__textButton_tap;
+    juce::Image cachedImage_background2_png_1;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (delay_ui)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DualDelayVerbUI)
 };
 
 //[EndFile] You can add extra defines here...

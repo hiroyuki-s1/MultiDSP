@@ -2,30 +2,21 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="component">
-      <UniqueIdentifier>{09EFE2DA-4184-D23B-D80E-6283A11CBFEB}</UniqueIdentifier>
+    <Filter Include="DualDelayVerb">
+      <UniqueIdentifier>{DE64CA15-E867-4DF1-7ED1-D935B124CE41}</UniqueIdentifier>
     </Filter>
     <Filter Include="JUCE Library Code">
       <UniqueIdentifier>{7ED5A90E-41AF-A1EF-659B-37CEEAB9BA61}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\delay_ui.cpp">
-      <Filter>component</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\dual_delay_verb_ui.cpp">
-      <Filter>component</Filter>
+      <Filter>DualDelayVerb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\dd.h">
-      <Filter>component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\delay_ui.h">
-      <Filter>component</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\dual_delay_verb_ui.h">
-      <Filter>component</Filter>
+      <Filter>DualDelayVerb</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>JUCE Library Code</Filter>

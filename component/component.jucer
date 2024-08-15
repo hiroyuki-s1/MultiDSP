@@ -4,6 +4,13 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="YVNZCz" name="component">
     <GROUP id="{126C81BA-43B2-D7CC-1607-0DC370E2208D}" name="Source"/>
+    <FILE id="ky0g98" name="dd.h" compile="0" resource="0" file="Source/dd.h"/>
+    <FILE id="ppsedh" name="delay_ui.cpp" compile="1" resource="0" file="Source/delay_ui.cpp"/>
+    <FILE id="yTEz3V" name="delay_ui.h" compile="0" resource="0" file="Source/delay_ui.h"/>
+    <FILE id="pgwNEe" name="dual_delay_verb_ui.cpp" compile="1" resource="0"
+          file="Source/dual_delay_verb_ui.cpp"/>
+    <FILE id="XqWTOD" name="dual_delay_verb_ui.h" compile="0" resource="0"
+          file="Source/dual_delay_verb_ui.h"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>
@@ -15,4 +22,7 @@
     </VS2019>
   </EXPORTFORMATS>
   <MODULES/>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
 </JUCERPROJECT>

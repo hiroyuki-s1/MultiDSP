@@ -24,6 +24,14 @@
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
+
+void delay_ui::setLabelText(const juce::String& newText)
+{
+    if (juce__label != nullptr)
+    {
+        juce__label->setText(newText, juce::dontSendNotification);
+    }
+}
 //[/MiscUserDefs]
 
 //==============================================================================
@@ -34,7 +42,7 @@ delay_ui::delay_ui ()
 
     juce__slider_time.reset (new juce::Slider ("slider_time"));
     addAndMakeVisible (juce__slider_time.get());
-    juce__slider_time->setRange (0, 10, 0);
+    juce__slider_time->setRange (0, 1, 0.001);
     juce__slider_time->setSliderStyle (juce::Slider::Rotary);
     juce__slider_time->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
     juce__slider_time->setColour (juce::Slider::thumbColourId, juce::Colour (0xffbcff93));
@@ -44,7 +52,7 @@ delay_ui::delay_ui ()
 
     juce__slider_mix.reset (new juce::Slider ("slider_mix"));
     addAndMakeVisible (juce__slider_mix.get());
-    juce__slider_mix->setRange (0, 10, 0);
+    juce__slider_mix->setRange (0, 1, 0.001);
     juce__slider_mix->setSliderStyle (juce::Slider::Rotary);
     juce__slider_mix->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
     juce__slider_mix->setColour (juce::Slider::thumbColourId, juce::Colour (0xffbcff93));
@@ -54,7 +62,7 @@ delay_ui::delay_ui ()
 
     juce__slider_repeat.reset (new juce::Slider ("slider_repeat"));
     addAndMakeVisible (juce__slider_repeat.get());
-    juce__slider_repeat->setRange (0, 10, 0);
+    juce__slider_repeat->setRange (0, 1, 0.001);
     juce__slider_repeat->setSliderStyle (juce::Slider::Rotary);
     juce__slider_repeat->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
     juce__slider_repeat->setColour (juce::Slider::thumbColourId, juce::Colour (0xffbcff93));
@@ -64,11 +72,12 @@ delay_ui::delay_ui ()
 
     juce__slider_tone.reset (new juce::Slider ("slider_tone"));
     addAndMakeVisible (juce__slider_tone.get());
-    juce__slider_tone->setRange (0, 10, 0);
+    juce__slider_tone->setRange (0, 1, 0.001);
     juce__slider_tone->setSliderStyle (juce::Slider::Rotary);
     juce__slider_tone->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
     juce__slider_tone->setColour (juce::Slider::thumbColourId, juce::Colour (0xffbcff93));
     juce__slider_tone->addListener (this);
+    juce__slider_tone->setSkewFactor (0.5);
 
     juce__slider_tone->setBounds (48, 184, 72, 72);
 
@@ -170,21 +179,25 @@ void delay_ui::sliderValueChanged (juce::Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == juce__slider_time.get())
     {
         //[UserSliderCode_juce__slider_time] -- add your slider handling code here..
+        delay_time = sliderThatWasMoved->getValue();
         //[/UserSliderCode_juce__slider_time]
     }
     else if (sliderThatWasMoved == juce__slider_mix.get())
     {
         //[UserSliderCode_juce__slider_mix] -- add your slider handling code here..
+        mix = sliderThatWasMoved->getValue();
         //[/UserSliderCode_juce__slider_mix]
     }
     else if (sliderThatWasMoved == juce__slider_repeat.get())
     {
         //[UserSliderCode_juce__slider_repeat] -- add your slider handling code here..
+        repeat = sliderThatWasMoved->getValue();
         //[/UserSliderCode_juce__slider_repeat]
     }
     else if (sliderThatWasMoved == juce__slider_tone.get())
     {
         //[UserSliderCode_juce__slider_tone] -- add your slider handling code here..
+        tone = sliderThatWasMoved->getValue();
         //[/UserSliderCode_juce__slider_tone]
     }
 
@@ -231,23 +244,23 @@ BEGIN_JUCER_METADATA
   </BACKGROUND>
   <SLIDER name="slider_time" id="a533138deb3388c1" memberName="juce__slider_time"
           virtualName="" explicitFocusOrder="0" pos="48 40 72 72" thumbcol="ffbcff93"
-          min="0.0" max="10.0" int="0.0" style="Rotary" textBoxPos="NoTextBox"
+          min="0.0" max="1.0" int="0.001" style="Rotary" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
   <SLIDER name="slider_mix" id="302a5dc38a4cffdd" memberName="juce__slider_mix"
           virtualName="" explicitFocusOrder="0" pos="192 40 72 72" thumbcol="ffbcff93"
-          min="0.0" max="10.0" int="0.0" style="Rotary" textBoxPos="NoTextBox"
+          min="0.0" max="1.0" int="0.001" style="Rotary" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
   <SLIDER name="slider_repeat" id="b804b366db57d6cc" memberName="juce__slider_repeat"
           virtualName="" explicitFocusOrder="0" pos="192 184 72 72" thumbcol="ffbcff93"
-          min="0.0" max="10.0" int="0.0" style="Rotary" textBoxPos="NoTextBox"
+          min="0.0" max="1.0" int="0.001" style="Rotary" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
   <SLIDER name="slider_tone" id="3f57285a1de19e05" memberName="juce__slider_tone"
           virtualName="" explicitFocusOrder="0" pos="48 184 72 72" thumbcol="ffbcff93"
-          min="0.0" max="10.0" int="0.0" style="Rotary" textBoxPos="NoTextBox"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          min="0.0" max="1.0" int="0.001" style="Rotary" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.5"
           needsCallback="1"/>
   <TEXTBUTTON name="textButton_ONOFF" id="3ede6b81bf2e509e" memberName="juce__textButton_ONOFF"
               virtualName="" explicitFocusOrder="0" pos="88 440 136 64" buttonText="ON/OFF"

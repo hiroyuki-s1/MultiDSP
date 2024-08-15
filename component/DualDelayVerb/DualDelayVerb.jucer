@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="RrTiF0" name="DualDelayVerb" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+  <MAINGROUP id="SnYPdl" name="DualDelayVerb">
+    <GROUP id="{3C7C8FE0-EC43-08BC-1282-99EB93F6D943}" name="Source"/>
+    <FILE id="gRfl4r" name="dual_delay_verb_ui.cpp" compile="1" resource="0"
+          file="Source/dual_delay_verb_ui.cpp"/>
+    <FILE id="hucWJT" name="dual_delay_verb_ui.h" compile="0" resource="0"
+          file="Source/dual_delay_verb_ui.h"/>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="DualDelayVerb"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="DualDelayVerb"/>
+      </CONFIGURATIONS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES/>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>

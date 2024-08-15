@@ -1,9 +1,9 @@
 #pragma once
 
 #include <juce_audio_processors/juce_audio_processors.h>
-
-
 #include  "daisysp.h"
+#include "pedal_board.h"
+#include "common.h"
 
 //==============================================================================
 class AudioPluginAudioProcessor : public juce::AudioProcessor
@@ -48,12 +48,35 @@ public:
 
 	float noteVal, noteMidi;
 	float ratio, index;
-	double currentSampleRate = 0.0;
+	uint16_t currentSampleRate = 0;
+
+
+	void setDelayTime(float val) { delay_time = val; }
+	void setMix(float val) { mix = val; }
+	void setTone(float val) { tone = val; }
+	void setRepeat(float val) { repeat = val; }
+	daisysp::DelayLine<float, 88200> delay;
+	daisysp::OnePole onepole;
+	float delay_time;
+	float mix;
+	float tone;
+	float repeat = 0.0f;
+	std::vector<PedalBoard> pedal_board;
 
 private:
-	
+	juce::AudioProcessorValueTreeState parameters;
 	daisysp::Fm2 osc;
-	daisysp::DelayLine<float, 88200> delay; 
+	std::atomic<float>* param_top1 = nullptr;
+	std::atomic<float>* param_top2 = nullptr;
+	std::atomic<float>* param_top3 = nullptr;
+	std::atomic<float>* param_bottom1 = nullptr;
+	std::atomic<float>* param_bottom2 = nullptr;
+	std::atomic<float>* param_bottom3 = nullptr;
+	//daisysp::DelayLine<float, 188200> delay; 
+	 //double delay_time;
+	 //double mix;
+	 //double tone;
+	 //double repeat;
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioPluginAudioProcessor)
 };
