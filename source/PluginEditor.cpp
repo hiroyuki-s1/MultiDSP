@@ -38,7 +38,7 @@ void AudioPluginAudioProcessorEditor::initAttachment() {
 	auto itm = dual_delay_verb_ui.getChildren();
 	//testSliderAttachment.reset(new SliderAttachment(valueTreeState, "param1", testSlider));
 	// delayUI
-	LOG_INFO("start init");
+	LOG_INFO("start init"); 
 	sl_attachment_.clear();
 	sl_attachment_.resize(KNOB_TYPE::SIZE);
 	for (auto* child : itm)

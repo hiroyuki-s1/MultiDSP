@@ -154,7 +154,7 @@ void AudioPluginAudioProcessor::releaseResources()
 
 bool AudioPluginAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
-  #if JucePlugin_IsMidiEffect
+  #if JucePlugin_IsMidiEffect   
     juce::ignoreUnused (layouts);
     return true;
   #else

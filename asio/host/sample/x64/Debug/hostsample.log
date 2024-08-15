@@ -1,0 +1,5 @@
+﻿cl : コマンド ライン  warning D9035: オプション 'Gm' の使用は現在推奨されていません。今後のバージョンからは削除されます。
+  hostsample.cpp
+  asio.cpp
+  コードを生成中...
+  hostsample.vcxproj -> C:\Users\hiroyuki\Downloads\asiosdk_2.3.3_2019-06-14\host\sample\x64\Debug\hostsample.exe
